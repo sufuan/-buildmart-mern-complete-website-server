@@ -5,6 +5,7 @@ import Register from './auth/Register';
 import About from './Components/About/About';
 import Home from './Components/Home/Home';
 import MyOrders from './Components/MyOrders/MyOrders';
+import Myreviews from './Components/MyReviews/Myreviews';
 import Products from './Components/Products/Products';
 import Purchasepage from './Components/PurchasePage/Purchasepage';
 import Footer from './Shared/Footer';
@@ -19,6 +20,7 @@ const App = () => {
            <Route path='/product' element={<Products></Products>}></Route>
            <Route path='/purchasepage/:id' element={<Purchasepage></Purchasepage>}></Route>
            <Route path='/myorders' element={<MyOrders></MyOrders>}></Route>
+           <Route path='/myreviews' element={<Myreviews></Myreviews>}></Route>
            <Route path='/about' element={<About></About>}></Route>
            <Route path='/login' element={<Login></Login>}></Route>
            <Route path='/register' element={<Register></Register>}></Route>
