@@ -81,14 +81,14 @@ const Myreviews = () => {
 
 
                     //     return <label>
-                    //     <input style={{ display: 'none' }}
+                    //     {/* <input style={{ display: 'none' }}
                     //         type="radio"
                     //         name="rating"
 
-                    //     />
+                    //     /> */}
                     //     <FaStar 
                     //      size={50}
-                    //      color={ratingValue<=(0) ? '#ffc107':'#e4e5e9'}
+                    //      color={ratingValue<=(4) ? '#ffc107':'#e4e5e9'}
 
                     //      ></FaStar>
                     // </label>
@@ -138,3 +138,55 @@ const Myreviews = () => {
 };
 
 export default Myreviews;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {reviews.map(review => {
+//     return (
+//         <div>
+//             <p class="text-gray-600">{review.reviewText}</p>
+//             <p class="text-gray-600">rating  {[...Array(5)].map((star, i) => {
+
+//                 const ratingValue = i + 1
+
+//                 return <label>
+
+//                     <FaStar
+//                         size={30}
+//                         color={ratingValue <= (review.rating) ? '#ffc107' : '#e4e5e9'}
+
+//                     ></FaStar>
+//                 </label>
+//             })}</p>
+//             <div class="text-gray-900 font-bold uppercase mt-6">- Jesse D.</div>
+//             <div class="text-gray-600">Apple</div>
+//         </div>
+//     )
+// }
+
+// )}
