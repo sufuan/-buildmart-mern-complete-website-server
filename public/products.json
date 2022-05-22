@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "6289bbd4287078c3fb44235c",
+    "price": "$2,441.45",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 29,
+    "availableQuantity": 33,
+    "name": "Stella Gonzalez",
+    "description": "Magna fugiat eiusmod incididunt pariatur ad id nulla elit laborum qui ad. Proident proident ea excepteur do incididunt id irure culpa incididunt Lorem excepteur elit consequat aute. "
+  },
+  {
+    "_id": "6289bbd45d9be8f7b0d2501e",
+    "price": "$1,714.56",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 29,
+    "availableQuantity": 22,
+    "name": "Millie Pitts",
+    "description": "Fugiat incididunt anim aliquip eiusmod laborum tempor amet aliqua do enim labore mollit laboris dolor. Fugiat ipsum qui voluptate irure nostrud. Est proident tempor consequat nulla sunt velit "
+  },
+  {
+    "_id": "6289bbd4f5e044a0eb3281f4",
+    "price": "$2,233.88",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 40,
+    "availableQuantity": 24,
+    "name": "Ellis Day",
+    "description": "Duis id voluptate commodo officia. Esse in laborum voluptate consequat. Sit excepteur minim ea amet deserunt adipisicing adipisicing minim aliqua anim.\r\n"
+  },
+  {
+    "_id": "6289bbd4bd1a61b0f62ce3bf",
+    "price": "$3,277.41",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 35,
+    "availableQuantity": 36,
+    "name": "Estela Barker",
+    "description": "Consectetur laboris minim aliquip duis mollit aliquip. Et consectetur occaecat officia sunt dolor enim et veniam ut ut id minim. Duis ea cillum incididunt et nisi cupidatat aute aute in "
+  },
+  {
+    "_id": "6289bbd4c1822fd1e4d73a80",
+    "price": "$3,293.49",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 37,
+    "availableQuantity": 31,
+    "name": "Alyssa Hayes",
+    "description": "Occaecat ullamco magna est dolor magna ad id sunt proident ex nisi. Magna et ipsum sunt duis id pariatur sint labore culpa amet ex anim. Do commodo officia ullamco Lorem qui.\r\n"
+  },
+  {
+    "_id": "6289bbd4db72021c707fdfce",
+    "price": "$1,859.75",
+    "img": "https://dummyimage.com/420x260",
+    "minQuantity": 32,
+    "availableQuantity": 39,
+    "name": "Short Murray",
+    "description": "Ullamco officia nostrud non enim aliquip enim minim eiusmod laboris consequat amet. Magna ullamco id qui dolor proident tempor aute. In fugiat reprehe"
+  }
+]
