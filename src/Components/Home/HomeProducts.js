@@ -1,7 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HomeProducts = ({product}) => {
     const {_id,name,price,img ,minQuantity,availableQuantity,description}=product
+
+
+    const navigate = useNavigate()
+    
+    const navigateTODetails = id => {
+        navigate(`/purchasepage/${_id}`)
+    }
+    
+    
+    
+    
+    
     return (
         <div>
             <div className="relative">
@@ -30,10 +43,10 @@ const HomeProducts = ({product}) => {
                     <p className='text-sm '>Available : {availableQuantity}</p>
                 </div>
             </div>
-            {/* <div className="mt-6">
+            <div className="mt-6">
                 <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Update Product</button>
 
-            </div> */}
+            </div>
         </div>
     );
 };
