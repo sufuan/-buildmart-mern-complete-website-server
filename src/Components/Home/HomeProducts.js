@@ -44,7 +44,7 @@ const HomeProducts = ({product}) => {
                 </div>
             </div>
             <div className="mt-6">
-                <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Update Product</button>
+                <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Book Now</button>
 
             </div>
         </div>
