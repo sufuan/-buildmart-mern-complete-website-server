@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+
 
 const Purchasepage = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -21,11 +23,11 @@ const Purchasepage = () => {
             })
     }, [id])
 
-  
-    let Quantity =minQuantity
+
+    let Quantity = minQuantity
 
     //  set usestate initial value as minquantity
-   const [count, setCount] = useState(minQuantity)
+    const [count, setCount] = useState(minQuantity)
     useEffect(() => {
         setCount(minQuantity)
     }, [minQuantity])
@@ -33,23 +35,23 @@ const Purchasepage = () => {
 
 
 
-     if(count>minQuantity){
-       
-        Quantity=count
-         
+    if (count > minQuantity) {
+
+        Quantity = count
+
     }
-    else if (count<minQuantity) {
+    else if (count < minQuantity) {
         alert('tham')
-        Quantity=minQuantity
+        Quantity = minQuantity
     }
-   
+
 
     console.log(Quantity)
     // console.log(minQuantity);
 
 
 
-  
+
 
 
 
@@ -57,7 +59,7 @@ const Purchasepage = () => {
 
     const handleOrder = e => {
         e.preventDefault();
-     
+
         console.log(Quantity);
 
         const orderInfo = {
@@ -71,7 +73,7 @@ const Purchasepage = () => {
             Quantity
 
         }
-     
+
 
 
 
@@ -86,17 +88,17 @@ const Purchasepage = () => {
             .then(data => {
 
                 console.log(data);
-                // if(data.success){
-                //     toast(`Appointment is set, ${formattedDate} at ${slot}`)
-                // }
-                // else{
-                //     toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`)
-                // }
-                // setTreatment(null);
-                // refetch();
+                if(data.success){
+                    toast("Order placed")
+                   
+                }
+                else{
+                    toast.error(`something went wrong`)
+                }
+                e.reset()
             });
 
-
+           
 
 
     }
@@ -141,7 +143,9 @@ const Purchasepage = () => {
 
                                 <div className="ml-4 flex">
                                     <p className="text-sm font-medium ">
-                                        {minQuantity}
+                                        <button className='text-2xl p-2' onClick={() => setCount(count + 1)}>+ </button>
+                                        <span className='m-2'> {Quantity}</span>
+                                        <button className='text-2xl p-2' onClick={() => setCount(count - 1)}>-</button>
                                     </p>
                                 </div>
                             </div>
@@ -158,40 +162,10 @@ const Purchasepage = () => {
 
 
                         <div className="mt-8 lg:col-span-5">
-                            <button onClick={()=>setCount(count+1)}
-
-                                className="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            >
-                                deliver
-                            </button>
-
-                            <button onClick={()=>setCount(count-1)}>decrease</button>
-                            <form >
-                                <h1 className='mt-8 text-lg '>Restock New Arrival Items</h1>
-
-                                <div className="flex items-center  justify-between">
-
-                                    <div>
-                                        <input className=" appearance-none block  py-2 px-10 border border-gray-300 rounded-md  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm my-5" name='quantity' type="number" placeholder='restock item ' required />
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        className=" bg-indigo-600 border border-transparent rounded-md py-2 px-10 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"                  >
-                                        Restock
-                                    </button>
-
-                                </div>
-
-                            </form>
-
-
-
-
 
                             <div className="mt-10">
                                 <h1 className='texl-xl'>Product Description:</h1>
-                                <h2 className="text-sm font-medium text-gray-900">description</h2>
+                                <h2 className="text-sm font-medium text-gray-900">{description}</h2>
 
 
                             </div>
@@ -199,37 +173,35 @@ const Purchasepage = () => {
 
 
 
+                            <form className='mt-9' onSubmit={handleOrder}>
+                                <h1 className='text-2xl my-2'>contact information</h1>
+
+                                <div className='flex'>
+                                    <input type="text" name="name" disabled value={user?.displayName || ''} className="input  input-sm input-bordered w-1/2 max-w-xs mx-2" />
+
+                                    <input type="email" name="email" disabled value={user?.email || ''} className="input input-sm  input-bordered w-1/2 max-w-xs" />
+                                </div>
+
+                                <h1 className='text-2xl my-2'>Shipping Information</h1>
+
+                                <div className="flex">
+                                    <input type="text" name='address' required placeholder="address" class="input input-sm input-bordered w-1/2 max-w-xs mx-2" />
+                                    <input type="text" name='phone' required placeholder="phone" class="input input-sm input-bordered w-1/2 max-w-xs" /> <br />
+
+                                </div>
+
+                                <div className="text-center">
+                                    <input type="submit" value="Place Order" className="btn w-full btn-secondary  max-w-xs my-2" />
+
+                                </div>
+                            </form>
 
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div className=' m-9'>
-                <div>
-                    <form onSubmit={handleOrder}>
-                        <h1 className='text-2xl my-2'>contact information</h1>
 
-                        <input type="text" name="name" disabled value={user?.displayName || ''} className="input  input-sm input-bordered w-full max-w-xs mx-2" />
-
-                        <input type="email" name="email" disabled value={user?.email || ''} className="input input-sm  input-bordered w-full max-w-xs" />
-
-                        <h1 className='text-2xl my-2'>Shipping Information</h1>
-
-                        <input type="text" name='address' required placeholder="address" class="input input-sm input-bordered w-full max-w-xs mx-2" />
-                        <input type="text" name='phone' required placeholder="phone" class="input input-sm input-bordered w-full max-w-xs" /> <br />
-
-
-                        <div className="text-center">
-                            <input type="submit" value="Submit" className="btn btn-secondary btn-sm  max-w-xs my-2" />
-
-                        </div>
-                    </form>
-
-                </div>
-
-
-            </div>
         </div>
     );
 };
