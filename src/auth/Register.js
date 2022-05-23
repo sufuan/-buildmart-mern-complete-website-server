@@ -24,7 +24,7 @@ const Register = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
-    const [toke]=useToken(user || gUser)
+    const [token]=useToken(user || gUser)
 
 
     const navigate = useNavigate();
@@ -72,7 +72,7 @@ const Register = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (user || gUser) {
+    if (token) {
         navigate('/product');
     }
 
