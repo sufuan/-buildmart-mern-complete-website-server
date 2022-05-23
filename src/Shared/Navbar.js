@@ -21,12 +21,7 @@ const Navbar = () => {
     {
         user && <li><Link to="/dashboard">Dashboard</Link></li>
     }
-     {
-        user && <li><Link to="/myorders">My Orders</Link></li>
-    }
-     {
-        user && <li><Link to="/myreviews">reviws</Link></li>
-    }
+    
     <li>{user ? <button className="btn btn-ghost" onClick={logout} >Log Out</button> : <Link to="/login">Login</Link>}</li>
     </>
     return (
@@ -40,7 +35,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
+                <a className="btn btn-ghost normal-case text-xl">buildmart</a>
             </div>
             <div className="navbar-center hidden lg:flex ">
                 <ul className="menu menu-horizontal p-0">

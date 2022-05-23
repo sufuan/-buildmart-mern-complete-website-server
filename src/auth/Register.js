@@ -3,7 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../assets/icons/google.png'
 
 
@@ -24,6 +24,19 @@ const Register = () => {
 
 
     const navigate = useNavigate();
+
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user,gUser, from, navigate])
+
+
+
+
 
     let signInError;
     if (error || gError || updateError) {
@@ -64,9 +77,9 @@ const Register = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (user || gUser) {
-        navigate('/product');
-    }
+    // if (user || gUser) {
+    //     navigate('/product');
+    // }
 
 
 
@@ -149,12 +162,10 @@ const Register = () => {
                                 type="password"
                                 placeholder="Password"
                                 className="input input-sm my-2 input-bordered w-full max-w-xs"
-                                {...register("password", {
-                                    required: true
-                                })}
+                                {...register("password",validateOptions.password)}
                             />
                             <small className="text-red-600">
-                                {errors?.email && errors.email.message}
+                                {errors?.password && errors.password.message}
                             </small>
                         </div>
 
