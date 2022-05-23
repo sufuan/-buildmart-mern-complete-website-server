@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import About from './Components/About/About';
+import DashBoard from './Components/DashBoard/DashBoard';
 import Home from './Components/Home/Home';
 import MyOrders from './Components/MyOrders/MyOrders';
 import Myreviews from './Components/MyReviews/Myreviews';
@@ -19,7 +20,14 @@ const App = () => {
            <Route path='/' element={<Home></Home>}></Route>
            <Route path='/product' element={<Products></Products>}></Route>
            <Route path='/purchasepage/:id' element={<Purchasepage></Purchasepage>}></Route>
-           <Route path='/myorders' element={<MyOrders></MyOrders>}></Route>
+
+           <Route path='/dashboard' element={<DashBoard></DashBoard>}>
+
+             <Route index element={<MyOrders></MyOrders>}></Route>
+             <Route path='review' element={<Myreviews></Myreviews>}></Route>
+           </Route>
+
+           {/* <Route path='/myorders' element={<MyOrders></MyOrders>}></Route> */}
            <Route path='/myreviews' element={<Myreviews></Myreviews>}></Route>
            <Route path='/about' element={<About></About>}></Route>
            <Route path='/login' element={<Login></Login>}></Route>
