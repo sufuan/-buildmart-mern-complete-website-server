@@ -95,7 +95,7 @@ const Purchasepage = () => {
                 else{
                     toast.error(`something went wrong`)
                 }
-                e.reset()
+                
             });
 
            

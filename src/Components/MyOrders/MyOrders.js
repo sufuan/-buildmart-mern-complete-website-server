@@ -16,17 +16,17 @@ const MyOrders = () => {
 
 
         if (user) {
-            fetch(`http://localhost:5000/myitems?email=${user.email}`,{
-                method:'Get',
+            fetch(`http://localhost:5000/myitems?email=${user.email}`, {
+                method: 'Get',
                 headers: {
-                    
-                    'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
             })
                 .then(res => res.json())
                 .then(data => {
                     setMyorders(data)
-                    
+
                 })
         }
 
@@ -54,11 +54,11 @@ const MyOrders = () => {
                                 <th>{index + 1}</th>
                                 <td>{a.productName}</td>
                                 <td>{a.Quantity}</td>
-                               
-                                
+
+
                                 <td>{(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-primary btn-xs'>Payment</button></Link>}</td>
-                            <td>{(a.price && a.paid) && <span className='text-success'>paid</span> }</td>
-                                  <td>{a.treatment}</td>
+                                <td>{(a.price && a.paid) && <span className='text-success'>paid</span>}</td>
+                                <td>{a.treatment}</td>
                             </tr>)
                         }
 

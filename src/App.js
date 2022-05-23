@@ -13,6 +13,8 @@ import Products from './Components/Products/Products';
 import Purchasepage from './Components/PurchasePage/Purchasepage';
 import Footer from './Shared/Footer';
 import Navbar from './Shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -36,6 +38,7 @@ const App = () => {
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 };

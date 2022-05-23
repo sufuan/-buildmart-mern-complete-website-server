@@ -41,6 +41,7 @@ const Users = () => {
                            users.map(user=><UserRow
                            user={user}
                            key={user._id}
+                           refetch={refetch}
                            ></UserRow>)
                        }
                        
