@@ -24,7 +24,10 @@ const MyOrders = () => {
                 },
             })
                 .then(res => res.json())
-                .then(data => setMyorders(data))
+                .then(data => {
+                    setMyorders(data)
+                    
+                })
         }
 
     }, [user])
