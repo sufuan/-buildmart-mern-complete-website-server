@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../assets/icons/google.png'
+import useToken from '../hooks/useToken';
 
 
 const Register = () => {
@@ -23,20 +24,14 @@ const Register = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
+    const [toke]=useToken(user || gUser)
+
+
     const navigate = useNavigate();
 
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    
 
-    useEffect(() => {
-        if (user || gUser) {
-            navigate(from, { replace: true });
-        }
-    }, [user,gUser, from, navigate])
-
-
-
-
+    
 
     let signInError;
     if (error || gError || updateError) {
@@ -77,9 +72,9 @@ const Register = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    // if (user || gUser) {
-    //     navigate('/product');
-    // }
+    if (user || gUser) {
+        navigate('/product');
+    }
 
 
 
