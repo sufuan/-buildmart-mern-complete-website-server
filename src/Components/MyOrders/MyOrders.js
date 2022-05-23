@@ -16,7 +16,13 @@ const MyOrders = () => {
 
 
         if (user) {
-            fetch(`http://localhost:5000/myitems?email=${user.email}`)
+            fetch(`http://localhost:5000/myitems?email=${user.email}`,{
+                method:'Get',
+                headers: {
+                    
+                    'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+                },
+            })
                 .then(res => res.json())
                 .then(data => setMyorders(data))
         }
