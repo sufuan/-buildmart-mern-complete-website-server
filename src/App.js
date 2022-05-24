@@ -19,6 +19,7 @@ import MyProfile from './Components/DashBoard/MyProfile';
 import ManageAllOrders from './Components/DashBoard/ManageAllOrders';
 import ManageProduct from './Components/DashBoard/ManageProduct';
 import AddProduct from './Components/DashBoard/AddProduct';
+import Payment from './Components/DashBoard/Payment/Payment';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='/product' element={<Products></Products>}></Route>
         <Route path='/purchasepage/:id' element={<Purchasepage></Purchasepage>}></Route>
 
+
         <Route path='/dashboard' element={<RequireAuth><DashBoard></DashBoard></RequireAuth>}>
 
           <Route index element={<MyOrders></MyOrders>}></Route>
@@ -38,6 +40,7 @@ const App = () => {
           <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
           <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
 
 
         </Route>

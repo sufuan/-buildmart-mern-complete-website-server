@@ -23,6 +23,13 @@ const Purchasepage = () => {
             })
     }, [id])
 
+    const url = `http://localhost:5000/order/${id}`
+
+
+
+    useEffect(() => {
+        fetch(url).then(res => res.json()).then(data => console.log(data))
+    }, [])
 
     let Quantity = minQuantity
 
@@ -63,7 +70,7 @@ const Purchasepage = () => {
         console.log(Quantity);
 
         const orderInfo = {
-            orderId: _id,
+
             productName: name,
             price: price,
             email: user.email,
@@ -88,17 +95,17 @@ const Purchasepage = () => {
             .then(data => {
 
                 console.log(data);
-                if(data.success){
+                if (data.success) {
                     toast("Order placed")
-                   
+
                 }
-                else{
+                else {
                     toast.error(`something went wrong`)
                 }
-                
+
             });
 
-           
+
 
 
     }

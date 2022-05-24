@@ -6,10 +6,10 @@ const handleSubmit = e => {
     e.preventDefault()
 
     const productInfo = {
-        price: e.target.price.value,
+        price: parseInt(e.target.price.value),
         img: e.target.img.value,
-        minQuantity: e.target.minQuantity.value,
-        availableQuantity: e.target.availableQuantity.value,
+        minQuantity: parseInt(e.target.minQuantity.value),
+        availableQuantity: parseInt(e.target.availableQuantity.value),
         name: e.target.name.value,
         category: e.target.category.value,
         description: e.target.description.value,
