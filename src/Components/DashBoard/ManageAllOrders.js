@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import swal from '@sweetalert/with-react'
 
 const ManageAllOrders = () => {
 
@@ -13,36 +14,53 @@ const ManageAllOrders = () => {
 
 
    const handleDelete = (id) => {
-    const confirmDelete = window.confirm('wannna delete?')
-    if (confirmDelete) {
-      console.log(id);
+  
 
-      const url = `http://localhost:5000/products/${id}`
-      fetch(url, {
-        method: "DELETE",
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Poof! Your imaginary file has been deleted!", {
+          icon: "success",
+        }).then((result) => {
+          console.log('tur');
 
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          if (data.deletedCount > 0) {
-            console.log('deleted');
-            const remaining = allOrders.filter(product => product._id !== id)
-            setAllOrders(remaining)
-          }
+
+
+
+          const url = `http://localhost:5000/products/${id}`
+          fetch(url, {
+            method: "DELETE",
+    
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+              if (data.deletedCount > 0) {
+                console.log('deleted');
+                const remaining = allOrders.filter(product => product._id !== id)
+                setAllOrders(remaining)
+              }
+            })
+
+
+
+
+
+          
         })
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
 
 
-
-
-
-
-
-
-
-
-    }
-  }
+ }
 
 
     return (
