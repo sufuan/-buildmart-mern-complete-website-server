@@ -3,69 +3,77 @@ import swal from '@sweetalert/with-react'
 
 const ManageAllOrders = () => {
 
-   const [allOrders, setAllOrders] = useState([])
+  const [allOrders, setAllOrders] = useState([])
 
-   useEffect(()=>{
-       fetch('http://localhost:5000/allorders')
-       .then(res=>res.json())
-       .then(data=>setAllOrders(data))
-   },[])
+  useEffect(() => {
+    fetch('http://localhost:5000/allorders')
+      .then(res => res.json())
+      .then(data => {
+        setAllOrders(data)
+        console.log(data);
+      })
+  }, [])
 
 
 
-   const handleDelete = (id) => {
-  
+  const handleDelete = (id) => {
+
 
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      text: "Once deleted, you will not be able to recover this file!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     })
-    .then((willDelete) => {
-      if (willDelete) {
-        swal("Poof! Your imaginary file has been deleted!", {
-          icon: "success",
-        }).then((result) => {
-          console.log('tur');
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your  file has been deleted!", {
+            icon: "success",
+          }).then((result) => {
+            console.log('tur');
 
 
 
 
-          const url = `http://localhost:5000/products/${id}`
-          fetch(url, {
-            method: "DELETE",
-    
-          })
-            .then(res => res.json())
-            .then(data => {
-              console.log(data)
-              if (data.deletedCount > 0) {
-                console.log('deleted');
-                const remaining = allOrders.filter(product => product._id !== id)
-                setAllOrders(remaining)
-              }
+            const url = `http://localhost:5000/products/${id}`
+            fetch(url, {
+              method: "DELETE",
+
             })
+              .then(res => res.json())
+              .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                  console.log('deleted');
+                  const remaining = allOrders.filter(product => product._id !== id)
+                  setAllOrders(remaining)
+                }
+              })
 
 
 
 
 
-          
-        })
-      } else {
-        swal("Your imaginary file is safe!");
-      }
-    });
+
+          })
+        } else {
+          swal("Your file is safe!");
+        }
+      });
 
 
- }
+  }
 
 
-    return (
-          <div>
-            al orders {allOrders.length}
+  const handleUpdateStatus=id=>{
+    console.log('update');
+  }
+
+
+  return (
+    <div>
+      al orders {allOrders.length}
       <section>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -76,20 +84,21 @@ const ManageAllOrders = () => {
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                Quantity
+                  Quantity
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                User Name
+                  User Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   payment status
+                  payment status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                 Status
-                </th><th scope="col" class="px-6 py-3">
-                   Action
+                  Status
                 </th>
+                {/* <th scope="col" class="px-6 py-3">
+                  Action
+                </th> */}
               </tr>
             </thead>
             <tbody>
@@ -109,13 +118,14 @@ const ManageAllOrders = () => {
                       <td class="px-6 py-4">
                         {order.userName}
                       </td><td class="px-6 py-4">
-                        unpaid
+                        {order.paid ? <h1 className='text-success font-bold' >paid</h1> : <h1 >unpaid</h1>}
                       </td><td class="px-6 py-4">
-                        pending
+                        {order.paid ? <button onClick={() => handleUpdateStatus(order._id)} className='btn btn-success btn-xs'>pending</button> : <h1 >unpaid</h1>}
                       </td>
-                      <td class="px-6 py-4 text-right">
-                        <button onClick={() => handleDelete(order._id)} className="font-medium mx-2 text-red-600  hover:underline">delete</button>
-                        </td>
+                      {/* <td class="px-6 py-4 text-right">
+                        {!order.paid && <button onClick={() => handleDelete(order._id)} className='btn btn-error btn-xs'>delete</button>
+                        }
+                      </td> */}
                     </tr>
 
                   )
@@ -128,7 +138,7 @@ const ManageAllOrders = () => {
       </section>
 
     </div>
-    );
+  );
 };
 
 export default ManageAllOrders;
