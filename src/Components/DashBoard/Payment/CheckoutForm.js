@@ -10,7 +10,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const { _id, price, patient, userName } = order;
+    const { _id, price, email, userName } = order;
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -59,7 +59,7 @@ const CheckoutForm = ({ order }) => {
                     card: card,
                     billing_details: {
                         name: userName,
-                        email: patient
+                        email: email
                     },
                 },
             },
@@ -73,14 +73,14 @@ const CheckoutForm = ({ order }) => {
             setCardError('');
             setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
-            setSuccess('Congrats! Your payment is completed.')
+            setSuccess('Congratutation! Your payment is successfull.')
             
             //store payment on database
             const payment = {
-                appointment: _id,
+                order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000//booking/${_id}`, {
+            fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -124,7 +124,7 @@ const CheckoutForm = ({ order }) => {
             {
                 success && <div className='text-green-500'>
                     <p>{success}  </p>
-                    <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
+                    <p>Your transaction Id: <span className="font-bold">{transactionId}</span> </p>
                 </div>
             }
         </>
