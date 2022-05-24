@@ -15,6 +15,10 @@ import Footer from './Shared/Footer';
 import Navbar from './Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MyProfile from './Components/DashBoard/MyProfile';
+import ManageAllOrders from './Components/DashBoard/ManageAllOrders';
+import ManageProduct from './Components/DashBoard/ManageProduct';
+import AddProduct from './Components/DashBoard/AddProduct';
 
 const App = () => {
   return (
@@ -30,6 +34,12 @@ const App = () => {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<Myreviews></Myreviews>}></Route>
           <Route path='allusers' element={<Users></Users>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+
+
         </Route>
 
 
