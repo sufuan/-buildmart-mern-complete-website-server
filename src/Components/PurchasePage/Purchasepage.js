@@ -48,13 +48,12 @@ const Purchasepage = () => {
 
     }
     else if (count < minQuantity) {
-        alert('tham')
+        alert('you have to order minimum 5')
         Quantity = minQuantity
     }
 
 
-    console.log(Quantity)
-    // console.log(minQuantity);
+  
 
 
 
@@ -155,8 +154,12 @@ const Purchasepage = () => {
                                         <button className='text-2xl p-2' onClick={() => setCount(count - 1)}>-</button>
                                     </p>
                                 </div>
-                            </div>
 
+                               
+                            </div>
+                            <p>
+                                    available Quantity :{availableQuantity}
+                                </p>
 
                         </div>
                         {/* img  */}

@@ -31,21 +31,6 @@ const HomeReview = () => {
                                         <img src="//via.placeholder.com/100/eee" alt="profile image" class="w-full h-full object-cover" />
                                     </div>
                                     <div>
-                                        <p class="text-gray-600">"It really saves me time and effort. FWR Bootstrap Blocks is exactly what our business has been lacking. FWR Bootstrap Blocks was worth a fortune to my company. FWR Bootstrap Blocks has really helped our business. I'm good to go."</p>
-
-
-
-
-
-
-
-
-
-
-
-                                     
-
-
 
                                         <div>
                                             <p class="text-gray-600">{review.reviewText}</p>
@@ -62,15 +47,15 @@ const HomeReview = () => {
                                                     ></FaStar>
                                                 </label>
                                             })}</p>
-                                           
-                                            
+
+
                                         </div>
 
 
 
 
 
-                                      
+
                                     </div>
                                 </div>
                             </div>

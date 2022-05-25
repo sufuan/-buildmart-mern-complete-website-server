@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 const Myreviews = () => {
 
     const [rating, setRating] = useState(null)
@@ -30,14 +31,14 @@ const Myreviews = () => {
             .then(data => {
 
                 console.log(data);
-                // if(data.success){
-                //     toast("Order placed")
-                   
-                // }
-                // else{
-                //     toast.error(`something went wrong`)
-                // }
-                // e.reset()
+                if(data.success){
+                    swal("Good job!", "Review Added", "success");
+                   setRating(null)
+                }
+                else{
+                    toast.error(`something went wrong`)
+                }
+                e.reset()
             });
 
            
@@ -71,7 +72,7 @@ const Myreviews = () => {
 
 
 
-                    //  input
+                  
 
 
 
@@ -80,18 +81,7 @@ const Myreviews = () => {
 
 
 
-                    //     return <label>
-                    //     {/* <input style={{ display: 'none' }}
-                    //         type="radio"
-                    //         name="rating"
-
-                    //     /> */}
-                    //     <FaStar 
-                    //      size={50}
-                    //      color={ratingValue<=(4) ? '#ffc107':'#e4e5e9'}
-
-                    //      ></FaStar>
-                    // </label>
+                
                 })}
             </div>
 
@@ -112,10 +102,13 @@ const Myreviews = () => {
                         rows="3"
                         placeholder="Your message"
                     ></textarea>
-                </div>
-                <input  type="submit" value="submit" />
+                </div> 
+                
             </div>
-           
+               <div className="text-center">
+               <input className="btn btn-secondary"  type="submit" value="submit" />
+
+               </div>
            </form>
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 
 
 const handleSubmit = e => {
@@ -29,14 +31,12 @@ const handleSubmit = e => {
         .then(data => {
 
             console.log(data);
-            // if(data.success){
-            //     toast("Order placed")
+        
+                swal("Good job!", "Product Added", "success");
 
-            // }
-            // else{
-            //     toast.error(`something went wrong`)
-            // }
-            // e.reset()
+            
+           
+        
         });
 
 
@@ -64,7 +64,7 @@ const AddProduct = () => {
 
                         <input class="input w-full max-w-xs" required type="text" name="img" id="img" placeholder='img link' />
 
-                        <input type="submit" value="uoload" />
+                        <input className='btn btn-primary' type="submit" value="uoload" />
 
                     </form>
 

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import HomeProducts from './HomeProducts';
 import HomeReview from './HomeReview';
 
 const Home = () => {
-   const  [products, setProducts]=useProducts()
-   console.log(products);
+    const [products, setProducts] = useProducts()
+    console.log(products);
     return (
         <div>
             <div className="relative bg-white overflow-hidden">
@@ -33,11 +34,9 @@ const Home = () => {
                                     Custom Solutions to Suit Your Need
                                 </p>
                                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                                    <div className="rounded-md shadow">
-                                        <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">Get started</button>
-                                    </div>
+                                    
                                     <div className="mt-3 sm:mt-0 sm:ml-3">
-                                        <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> live</button>
+                                        <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">Explore</button>
                                     </div>
                                 </div>
                             </div>
@@ -55,28 +54,28 @@ const Home = () => {
 
 
             {/* products  */}
- 
+
 
             <div className="bg-white">
-                    <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-                        <h2 className="text-2xl text-center py-5 font-bold text-gray-700">Check out what's hittin' our shelves!</h2>
+                <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <h2 className="text-3xl text-center py-5 font-bold text-gray-700">Check out what's hittin' our shelves!</h2>
 
-                        <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+                    <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
 
 
-                            {
+                        {
 
-                                products?.slice(0, 3).map(product =><HomeProducts
+                            products?.slice(0, 3).map(product => <HomeProducts
                                 product={product}
                                 key={product._id}
-                                ></HomeProducts>)
-                            }
+                            ></HomeProducts>)
+                        }
 
-                        </div>
-                       
                     </div>
 
                 </div>
+
+            </div>
 
 
             {/* stats */}
@@ -115,9 +114,111 @@ const Home = () => {
                 </div>
             </div>
 
+
+
+
             {/* reviw */}
 
-           <HomeReview></HomeReview>
+            <HomeReview></HomeReview>
+
+            {/* contact  */}
+
+
+
+            <div className="bg-white">
+                <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Sales Support</h2>
+                            <div className="mt-3">
+                                <p className="text-lg text-gray-500">
+                                    If you need assistance regarding a service from us, let’s get it on table with one of our specialists, ready to help you.
+                                </p>
+                            </div>
+                            <div className="mt-9">
+                                <div className="flex">
+                                    <div className="flex-shrink-0">
+                                    </div>
+                                    <div className="ml-3 text-base text-gray-500">
+                                        <p>+880 123 4567</p>
+                                        <p className="mt-1">Mon-Fri 8am to 6pm</p>
+                                    </div>
+                                </div>
+                                <div className="mt-6 flex">
+                                    <div className="flex-shrink-0">
+                                    </div>
+                                    <div className="ml-3 text-base text-gray-500">
+                                        <p>support@buildmart.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-12 sm:mt-16 md:mt-0">
+                            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Technical Support</h2>
+                            <div className="mt-3">
+                                <p className="text-lg text-gray-500">
+
+                                    Support Ticket
+                                    Do you have an important matter to discuss about a purchased service from us? You can open a support ticket for a quick solution:
+                                </p>
+                            </div>
+                            <div className="mt-9">
+                                <div className="flex">
+                                    <div className="flex-shrink-0">
+                                    </div>
+                                    <div className="ml-3 text-base text-gray-500">
+                                       <h1 className='text-2xl'>Open a Ticket Now</h1>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* newsletter  */}
+
+
+            <div className="bg-white">
+                <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
+                    <div className="py-10 px-6 bg-indigo-700 rounded-3xl sm:py-16 sm:px-12 lg:p-20 lg:flex lg:items-center">
+                        <div className="lg:w-0 lg:flex-1">
+                            <h2 className="text-3xl font-extrabold tracking-tight text-white"> Get notified when we’re launching.</h2>
+                            <p className="mt-4 max-w-3xl text-lg text-indigo-100">
+                                Sign up for our newsletter
+
+                            </p>
+                        </div>
+                        <div className="mt-12 sm:w-full sm:max-w-md lg:mt-0 lg:ml-8 lg:flex-1">
+                            <form className="sm:flex">
+                                <label htmlFor="email-address" className="sr-only">
+                                    Email address
+                                </label>
+                                <input
+
+                                    type="email"
+
+                                    required
+                                    className="w-full border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white rounded-md"
+                                    placeholder="Enter your email"
+                                />
+                                <button
+                                    type="submit"
+                                    className="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+                                >
+                                    Notify me
+                                </button>
+                            </form>
+                            <p className="mt-3 text-sm text-indigo-100">
+                                We care about the protection of your data.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };
