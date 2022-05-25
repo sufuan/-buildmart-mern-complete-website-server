@@ -66,8 +66,30 @@ const ManageAllOrders = () => {
   }
 
 
-  const handleUpdateStatus=id=>{
+  const handleUpdateStatus = id => {
     console.log('update');
+    const status={
+      status:'shipped'
+    }
+
+    const url = `http://localhost:5000/order/${id}`
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+          'content-type': 'application/json',
+          'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      },
+      body: JSON.stringify(status)
+  }).then(res=>res.json())
+  .then(data => {
+     
+      console.log(data);
+  })
+
+
+
+
+
   }
 
 
@@ -120,7 +142,7 @@ const ManageAllOrders = () => {
                       </td><td class="px-6 py-4">
                         {order.paid ? <h1 className='text-success font-bold' >paid</h1> : <h1 >unpaid</h1>}
                       </td><td class="px-6 py-4">
-                        {order.paid ? <button onClick={() => handleUpdateStatus(order._id)} className='btn btn-success btn-xs'>pending</button> : <h1 >unpaid</h1>}
+                        {!order.shipped ? <button onClick={() => handleUpdateStatus(order._id)} className='btn btn-success btn-xs'>pending</button> : <h1 >shipped</h1>}
                       </td>
                       {/* <td class="px-6 py-4 text-right">
                         {!order.paid && <button onClick={() => handleDelete(order._id)} className='btn btn-error btn-xs'>delete</button>

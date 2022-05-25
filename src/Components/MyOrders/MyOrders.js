@@ -56,7 +56,7 @@ const MyOrders = () => {
                     }).then((result) => {
                         console.log('tur');
                         console.log(id);
-                        const url = `http://localhost:5000/products/${id}`
+                        const url = `http://localhost:5000/order/${id}`
                         fetch(url, {
                             method: "DELETE",
 
@@ -127,7 +127,7 @@ const MyOrders = () => {
                                 <td>{myorder.Quantity}</td>
 
 
-                                <td>{(!myorder.paid) && <Link to={`/dashboard/payment/${myorder._id}`}><button className='btn btn-primary btn-xs'>Payment</button></Link>}</td>
+                                <td>{(!myorder.paid) && <Link to={`/dashboard/payment/${myorder._id}`}><button className='btn btn-primary btn-xs'>Pay Now</button></Link>}</td>
 
 
                                 <td>{( myorder.paid) && <span className='text-success font-bold'>paid</span>}</td>
