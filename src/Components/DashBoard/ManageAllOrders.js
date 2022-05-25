@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
 
 
 
-            const url = `http://localhost:5000/products/${id}`
+            const url = `http://localhost:5000/order/${id}`
             fetch(url, {
               method: "DELETE",
 
@@ -118,9 +118,9 @@ const ManageAllOrders = () => {
                 <th scope="col" class="px-6 py-3">
                   Status
                 </th>
-                {/* <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3">
                   Action
-                </th> */}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -142,12 +142,17 @@ const ManageAllOrders = () => {
                       </td><td class="px-6 py-4">
                         {order.paid ? <h1 className='text-success font-bold' >paid</h1> : <h1 >unpaid</h1>}
                       </td><td class="px-6 py-4">
-                        {!order.shipped ? <button onClick={() => handleUpdateStatus(order._id)} className='btn btn-success btn-xs'>pending</button> : <h1 >shipped</h1>}
+                        {(order.paid)? <button disabled={order.shipped} onClick={() => handleUpdateStatus(order._id)} className='btn btn-success btn-xs'>pending</button>: <h1>unpaid</h1>}
                       </td>
-                      {/* <td class="px-6 py-4 text-right">
+
+                      <td class="px-6 py-4">
+                        {(order.shipped)&& <button className='btn btn-success btn-xs'>shipped</button> }
+                      </td>
+                      
+                      <td class="px-6 py-4 text-right">
                         {!order.paid && <button onClick={() => handleDelete(order._id)} className='btn btn-error btn-xs'>delete</button>
                         }
-                      </td> */}
+                      </td>
                     </tr>
 
                   )
