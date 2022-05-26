@@ -36,11 +36,11 @@ const App = () => {
 
 
         <Route path='/dashboard' element={<RequireAuth><DashBoard></DashBoard></RequireAuth>}>
-
-          <Route index element={<MyOrders></MyOrders>}></Route>
+        
+          <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='review' element={<Myreviews></Myreviews>}></Route>
           <Route path='allusers' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
-          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
           <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
           <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
