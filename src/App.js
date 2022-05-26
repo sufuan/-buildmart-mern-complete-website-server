@@ -22,6 +22,7 @@ import Payment from './Components/DashBoard/Payment/Payment';
 import Portfolio from './Components/Portfolio';
 import Blog from './Components/Blog/Blog';
 import NotFound from './Components/NotFound/NotFound';
+import RequireAdmin from './auth/RequireAdmin';
 
 const App = () => {
   return (
@@ -38,7 +39,7 @@ const App = () => {
 
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<Myreviews></Myreviews>}></Route>
-          <Route path='allusers' element={<Users></Users>}></Route>
+          <Route path='allusers' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
           <Route path='manageproduct' element={<ManageProduct></ManageProduct>}></Route>

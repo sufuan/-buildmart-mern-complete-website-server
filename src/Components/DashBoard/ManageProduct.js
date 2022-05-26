@@ -27,7 +27,7 @@ const ManageProduct = () => {
 
 
 
-                        const url = `http://localhost:5000/product/${id}`
+                        const url = `https://infinite-river-32307.herokuapp.com/product/${id}`
                         fetch(url, {
                             method: "DELETE",
 

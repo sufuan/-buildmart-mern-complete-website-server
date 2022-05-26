@@ -16,7 +16,7 @@ const Payment = () => {
 const {id}= useParams()
 
 
-const { data: order, isLoading } = useQuery(['booking', id], () => fetch(`http://localhost:5000/order/${id}`, {
+const { data: order, isLoading } = useQuery(['booking', id], () => fetch(`https://infinite-river-32307.herokuapp.com/order/${id}`, {
     method: 'GET',
     headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -14,7 +14,7 @@ const Purchasepage = () => {
 
     const { _id, description, img, name, minQuantity, availableQuantity, category, price } = product
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://infinite-river-32307.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -23,7 +23,7 @@ const Purchasepage = () => {
             })
     }, [id])
 
-    const url = `http://localhost:5000/order/${id}`
+    const url = `https://infinite-river-32307.herokuapp.com/order/${id}`
 
 
 
@@ -83,7 +83,7 @@ const Purchasepage = () => {
 
 
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://infinite-river-32307.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

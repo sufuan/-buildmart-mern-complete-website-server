@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/allorders')
+    fetch('https://infinite-river-32307.herokuapp.com/allorders')
       .then(res => res.json())
       .then(data => {
         setAllOrders(data)
@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
 
 
 
-            const url = `http://localhost:5000/order/${id}`
+            const url = `https://infinite-river-32307.herokuapp.com/order/${id}`
             fetch(url, {
               method: "DELETE",
 
@@ -72,7 +72,7 @@ const ManageAllOrders = () => {
       status:'shipped'
     }
 
-    const url = `http://localhost:5000/order/${id}`
+    const url = `https://infinite-river-32307.herokuapp.com/order/${id}`
     fetch(url, {
       method: 'PUT',
       headers: {

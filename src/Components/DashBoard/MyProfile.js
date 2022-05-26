@@ -28,7 +28,7 @@ const MyProfile = () => {
         }
         // console.log(profile)
 
-        const url = `http://localhost:5000/profile?email=${user.email}`
+        const url = `https://infinite-river-32307.herokuapp.com/profile?email=${user.email}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -51,7 +51,7 @@ const MyProfile = () => {
 
 
         if (user) {
-            fetch(`http://localhost:5000/profile?email=${user.email}`, {
+            fetch(`https://infinite-river-32307.herokuapp.com/profile?email=${user.email}`, {
                 method: 'Get',
                 headers: {
 
@@ -90,8 +90,8 @@ const MyProfile = () => {
                         <div>
                             <div>
                                 <h1 className='text-2xl mt-5'>contact information</h1>
-                                <p className='textxl font-semibold'>Name :{profile.name}</p>
-                                <p className='textxl font-semibold'>Email : {profile.email}</p>
+                                <p className='textxl font-semibold'>Name :{user.displayName}</p>
+                                <p className='textxl font-semibold'>Email : {user.email}</p>
                                 <p className='textxl font-semibold'>Phone :{profile?.phone}</p>
                                 <p className='textxl font-semibold'>Location :{profile?.location}</p>
 

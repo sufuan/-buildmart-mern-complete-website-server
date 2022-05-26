@@ -18,7 +18,7 @@ const MyOrders = () => {
 
 
         if (user) {
-            fetch(`http://localhost:5000/myitems?email=${user.email}`, {
+            fetch(`https://infinite-river-32307.herokuapp.com/myitems?email=${user.email}`, {
                 method: 'Get',
                 headers: {
 
@@ -56,7 +56,7 @@ const MyOrders = () => {
                     }).then((result) => {
                         console.log('tur');
                         console.log(id);
-                        const url = `http://localhost:5000/order/${id}`
+                        const url = `https://infinite-river-32307.herokuapp.com/order/${id}`
                         fetch(url, {
                             method: "DELETE",
 

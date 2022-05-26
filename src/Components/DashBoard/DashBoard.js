@@ -24,12 +24,12 @@ const DashBoard = () => {
           {/* <!-- Sidebar content here --> */}
           <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
 
-         {!admin &&<li><Link to='/dashboard'>My Orders</Link></li>}
-         {!admin &&  <li><Link to='/dashboard/review'>Add Review</Link></li>}
-         
-          <li><Link to='/dashboard/manageallorders'>Manage All Orders</Link></li>
-          <li><Link to='/dashboard/addproduct'>Add a product</Link></li>
-          <li><Link to='/dashboard/manageproduct'>Manage product</Link></li>
+          {!admin && <li><Link to='/dashboard'>My Orders</Link></li>}
+          {!admin && <li><Link to='/dashboard/review'>Add Review</Link></li>}
+          {admin && <li><Link to='/dashboard/manageallorders'>Manage All Orders</Link></li>
+          }
+          {admin && <li><Link to='/dashboard/addproduct'>Add a product</Link></li>}
+          {admin && <li><Link to='/dashboard/manageproduct'>Manage product</Link></li>}
           {admin && <li><Link to='/dashboard/allusers'>Make Admin</Link></li>}
         </ul>
 

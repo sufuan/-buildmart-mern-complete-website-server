@@ -20,7 +20,7 @@ const handleSubmit = e => {
 
     // console.log(productInfo);
 
-    fetch('http://localhost:5000/uploadpd', {
+    fetch('https://infinite-river-32307.herokuapp.com/uploadpd', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

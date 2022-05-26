@@ -20,7 +20,7 @@ const Myreviews = () => {
 
 
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://infinite-river-32307.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
