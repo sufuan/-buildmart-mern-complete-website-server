@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import swal from '@sweetalert/with-react'
 
 
 const Purchasepage = () => {
@@ -95,7 +96,7 @@ const Purchasepage = () => {
 
                 console.log(data);
                 if (data.success) {
-                    toast("Order placed")
+                    swal("Good job!", "Order Placed", "success");
 
                 }
                 else {

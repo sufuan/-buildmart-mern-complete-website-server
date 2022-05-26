@@ -18,12 +18,13 @@ const Navbar = () => {
     <li><Link to="/">Home</Link></li>
     <li><Link to="/product">Product</Link></li>
     <li><Link to="/blog">Blog</Link></li>
+    <li><Link to="/portfolio">Portfolio</Link></li>
     
     {
         user && <li><Link to="/dashboard">Dashboard</Link></li>
     }
     {
-        user && <li><Link to="/dashboard"> {user.displayName}</Link></li>
+        user && <li><h1>{user.displayName}</h1></li>
     }
     
     <li>{user ? <button className="btn btn-ghost" onClick={logout} >Log Out</button> : <Link to="/login">Login</Link>}</li>

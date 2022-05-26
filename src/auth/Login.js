@@ -50,7 +50,7 @@ const Login = () => {
 
     const validateOptions = {
         email: { required: "email is required" },
-        password: { required: "Name is required" }
+        password: { required: "Password is required" }
     }
 
     return (

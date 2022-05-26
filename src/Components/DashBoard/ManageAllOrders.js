@@ -84,6 +84,7 @@ const ManageAllOrders = () => {
   .then(data => {
      
       console.log(data);
+      swal("Good job!", "product shipped", "success");
   })
 
 

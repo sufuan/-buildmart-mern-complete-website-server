@@ -123,7 +123,7 @@ const CheckoutForm = ({ order }) => {
             }
             {
                 success && <div className='text-green-500'>
-                    <p>{success}  </p>
+                    <p  className='text-2xl' >{success}  </p>
                     <p>Your transaction Id: <span className="font-bold">{transactionId}</span> </p>
                 </div>
             }
